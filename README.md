@@ -66,3 +66,4 @@ Note: to get the code structure, tree -I '*.pyc|__pycache__'
 
 ## Licence
 
+GPL v3
