@@ -6,7 +6,8 @@ A small library for backtesting algorithmic trading strategies.
 
 ```bash
 pip install -e .
-pip install -r requirements.txt```
+pip install -r requirements.txt
+```
 
 ## Usage
 
