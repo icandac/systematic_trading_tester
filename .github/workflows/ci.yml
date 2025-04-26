@@ -14,8 +14,8 @@ jobs:
       - name: Install dependencies
         run: |
           python -m venv .venv
-          source .venv/bin/activate
-          pip install -r requirements.txt
+          pip install --upgrade pip
+          pip install -r requirements.txt -c constraints.txt
       - name: Run tests
         run: |
           source .venv/bin/activate

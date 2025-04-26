@@ -1,0 +1,1 @@
+sklearn==0.0.post12  # pin the broken stub to the exact version so pip won’t try to upgrade/build it
