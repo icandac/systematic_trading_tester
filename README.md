@@ -53,7 +53,6 @@ Note: to get the code structure, tree -I '*.pyc|__pycache__'
     ├── dependency_links.txt
     └── top_level.txt
 ```
-## Installation
 
 ## Road-map:
 - Logging with logging/loguru/live dashboard also to output sharp, returns, and PnL with live trading
