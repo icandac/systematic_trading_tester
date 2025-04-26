@@ -15,7 +15,8 @@ python main.py backtest
 
 ## Introduction
 Note: to get the code structure, tree -I '*.pyc|__pycache__'
-.
+
+```.
 ├── __init__.py
 ├── backtest
 │   ├── __init__.py
@@ -51,7 +52,7 @@ Note: to get the code structure, tree -I '*.pyc|__pycache__'
     ├── SOURCES.txt
     ├── dependency_links.txt
     └── top_level.txt
-
+```
 ## Installation
 
 ## Road-map:
