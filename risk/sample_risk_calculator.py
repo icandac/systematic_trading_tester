@@ -10,6 +10,10 @@ class RiskManager:
     def check_position_size(self, proposed_size: float) -> float:
         """
         Ensure the proposed size doesn't exceed the maximum allowed position size.
+        Args:
+            proposed_size (float): Proposed position size.
+        Returns:
+            float: Approved position size.
         """
         if proposed_size > self.max_position_size:
             return self.max_position_size

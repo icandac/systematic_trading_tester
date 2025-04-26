@@ -11,6 +11,10 @@ class PortfolioManager:
     def update_position(self, signal: int, price: float, quantity: float):
         """
         Update the portfolio based on the new trade signal.
+        Args:
+            signal (int): 1 for buy/long, -1 for sell/short, 0 for hold.
+            price (float): Current market price.
+            quantity (float): Quantity to trade.
         """
         if signal == 1:
             # Assume "buy" or "go long"
@@ -40,6 +44,10 @@ class PortfolioManager:
     def get_unrealized_pnl(self, current_price: float):
         """
         Calculate unrealized PnL based on current price.
+        Args:
+            current_price (float): Current market price.
+        Returns:
+            float: Unrealized PnL.
         """
         if self.position_size > 0:
             return (current_price - self.entry_price) * self.position_size

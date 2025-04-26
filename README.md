@@ -63,7 +63,7 @@ Note: to get the code structure, tree -I '*.pyc|__pycache__'
 - asyncio to parallel process different calculations
 - docker container to make it it up and running anywhere (in a cloud service?)
 - alert/notification to telegram or e-mail
-- 
+- Protect your main branch (optional due to the fact that I am the only developer currently and the repo can progress quickly)
 
 ## Licence
 

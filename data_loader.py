@@ -15,7 +15,12 @@ def get_binance_client():
 def fetch_historical_data(symbol: str, interval: str, limit=500):
     """
     Fetches historical candle data for `symbol` from Binance.
-    Returns a Pandas DataFrame with OHLCV data.
+    Args:
+        symbol (str): Trading pair symbol (e.g., "BTCUSDT").
+        interval (str): Kline interval (e.g., "1h", "1d").
+        limit (int): Number of candles to fetch.
+    Returns:
+        pd.DataFrame: DataFrame with historical OHLCV data.
     """
     client = get_binance_client()
     # Example uses the KLINE_INTERVAL_1HOUR from the binance library

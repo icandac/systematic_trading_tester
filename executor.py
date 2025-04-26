@@ -16,6 +16,13 @@ class TradeExecutor:
         """
         Places a market order. 
         side can be "BUY" or "SELL".
+        Args:
+            symbol (str): Trading pair symbol (e.g., "BTCUSDT").
+            side (str): "BUY" or "SELL".
+            quantity (float): Quantity to buy/sell.
+            order_type (str): Type of order ("MARKET", "LIMIT", etc.).
+        Returns:
+            dict: Order response from Binance API.
         """
         if self.manual_override:
             print("[Manual Override] Order blocked by user.")
@@ -43,5 +50,7 @@ class TradeExecutor:
     def set_manual_override(self, override: bool):
         """
         Enable or disable manual override. When True, all new orders are blocked.
+        Args:
+            override (bool): True to enable manual override, False to disable.
         """
         self.manual_override = override
