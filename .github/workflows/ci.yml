@@ -12,7 +12,6 @@ jobs:
         with:
           python-version: "3.11"
       - name: Install dependencies
-      - name: Install dependencies
         run: |
           python -m venv .venv
           source .venv/bin/activate
