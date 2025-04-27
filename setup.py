@@ -9,4 +9,9 @@ setup(
         # e.g. "numpy>=1.25,<2.0",
         #      "pandas>=2.0,<3.0",
     ],
+    entry_points={
+        "console_scripts": [
+            "stt = systematic_trading_tester.main:cli_entry",  # you expose a cli()
+        ]
+    },
 )
