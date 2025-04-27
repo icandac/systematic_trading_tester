@@ -38,6 +38,6 @@ echo "✅ Committed."
 # 4) Push to the current branch
 current_branch=$(git rev-parse --abbrev-ref HEAD)
 echo
-echo "📤 Pushing to origin/$current_branch…"
+echo "📤 Pushing to origin/$current_branch..."
 git push origin "$current_branch"
 echo "🎉 Done!"
