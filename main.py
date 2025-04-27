@@ -23,8 +23,17 @@ def main_backtest():
     results_df.to_csv(f"./outputs/backtest_results_{time_now}.csv", index=False)
 
 
-def main_live_trading():
+def main_live_trading(cycles: int | None = None, sleep_seconds: int = 60):
+    """
+    Run live (or testnet) trading.
+    Args:
+        cycles: int | None
+            If None, run forever.
+            If int, run for N cycles.
+        sleep_seconds: int
+    """
     executor = TradeExecutor()
+    i = 0
 
     while True:
         # 1. Fetch the latest data (e.g., last 100 candles)
@@ -34,11 +43,9 @@ def main_live_trading():
 
         # 2. Generate signals
         df = generate_signals(df)
-
-        # 3. Check the latest signal (last row)
         latest_signal = df["signal"].iloc[-1]
 
-        # For demonstration, place a market order if signal != 0
+        # Execute
         if latest_signal == 1:
             executor.place_order(
                 symbol=config.TRADING_SYMBOL, side="BUY", quantity=0.001
@@ -48,9 +55,12 @@ def main_live_trading():
                 symbol=config.TRADING_SYMBOL, side="SELL", quantity=0.001
             )
 
-        # Sleep until next iteration.
-        # Adjust to your timeframe or use websockets.
-        time.sleep(60)
+        # 4. Exit early in tests
+        i += 1
+        if cycles is not None and i >= cycles:
+            break
+
+        time.sleep(sleep_seconds)
 
 
 if __name__ == "__main__":

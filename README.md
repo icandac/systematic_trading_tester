@@ -2,19 +2,11 @@
 
 A small library for backtesting algorithmic trading strategies.
 
-## Installation
-
-```bash
-pip install -e .
-pip install -r requirements.txt
-```
-
-## Usage
-
-python main.py backtest
-
 ## Introduction
+
 Note: to get the code structure, tree -I '*.pyc|__pycache__'
+
+Library skeleton:
 
 ```.
 ├── __init__.py
@@ -53,6 +45,35 @@ Note: to get the code structure, tree -I '*.pyc|__pycache__'
     ├── dependency_links.txt
     └── top_level.txt
 ```
+
+## Installation
+
+```bash
+pip install -e .
+pip install -r requirements.txt
+```
+
+If one is interested in auto-push in developer mode, make
+
+```bash
+chmod +x git-auto.sh
+```
+
+then the developer can pre-commit, commit and push just with one command which is
+
+```bash
+./git-auto.sh
+```
+.
+
+## Usage
+
+python main.py backtest
+python main.py live (change testnet to True or False for paper or live trading)
+
+## Tests
+
+1. test_live_cycle to test a simple live cycle.
 
 ## Road-map:
 - Logging with logging/loguru/live dashboard also to output sharp, returns, and PnL with live trading
