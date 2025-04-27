@@ -1,4 +1,3 @@
-import types
 import pandas as pd
 import numpy as np
 import config.config_binance as config
