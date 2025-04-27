@@ -1,8 +1,8 @@
 # Sample configuration file for a trading bot using Binance API
-from dotenv import load_dotenv
 import os
 from pathlib import Path
 
+from dotenv import load_dotenv
 
 env_path = Path(__file__).parent.parent / ".env/.binance.env"
 load_dotenv(dotenv_path=env_path)
@@ -12,7 +12,7 @@ API_SECRET = os.getenv("COGZIL")
 
 TRADING_SYMBOL = "BTCUSDT"
 TIMEFRAME = "1h"
-TESTNET = True                  # set to False if using live environment
+TESTNET = True  # set to False if using live environment
 
 # Basic strategy parameters (example)
 SHORT_WINDOW = 10

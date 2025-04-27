@@ -1,5 +1,6 @@
-import pandas as pd
 import numpy as np
+import pandas as pd
+
 
 def calculate_returns(df: pd.DataFrame, column="close"):
     """
@@ -12,6 +13,7 @@ def calculate_returns(df: pd.DataFrame, column="close"):
     """
     df["returns"] = df[column].pct_change().fillna(0)
     return df
+
 
 def calculate_sharpe_ratio(returns, risk_free_rate=0.00):
     """

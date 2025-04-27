@@ -1,9 +1,8 @@
-import pandas as pd
-
 class PortfolioManager:
     """
     Simple portfolio manager that tracks position, average cost, PnL.
     """
+
     def __init__(self):
         self.position_size = 0.0
         self.entry_price = 0.0
@@ -27,7 +26,7 @@ class PortfolioManager:
                 total_cost = self.entry_price * self.position_size + price * quantity
                 self.position_size += quantity
                 self.entry_price = total_cost / self.position_size
-        
+
         elif signal == -1:
             # For simplicity, assume "sell/close" entire position if we have any
             if self.position_size > 0:
