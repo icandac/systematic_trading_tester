@@ -25,7 +25,7 @@ class DummyExecutor:
 
     def place_order(self, **kwargs):
         self.calls.append(kwargs)
-        return {"status": "FILLED"} 
+        return {"status": "FILLED"}
 
 def test_one_live_cycle(monkeypatch):
     """
