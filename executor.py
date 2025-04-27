@@ -1,12 +1,14 @@
-import time
 from binance.client import Client
+
 import config.config_binance as config
 from risk.sample_risk_calculator import RiskManager
+
 
 class TradeExecutor:
     """
     Responsible for sending orders to Binance (market, limit, stop, etc.).
     """
+
     def __init__(self):
         self.client = Client(config.API_KEY, config.API_SECRET, testnet=config.TESTNET)
         self.rm = RiskManager()
@@ -14,7 +16,7 @@ class TradeExecutor:
 
     def place_order(self, symbol: str, side: str, quantity: float, order_type="MARKET"):
         """
-        Places a market order. 
+        Places a market order.
         side can be "BUY" or "SELL".
         Args:
             symbol (str): Trading pair symbol (e.g., "BTCUSDT").
@@ -27,21 +29,18 @@ class TradeExecutor:
         if self.manual_override:
             print("[Manual Override] Order blocked by user.")
             return None
-        
+
         # Check risk once more
         if not self.rm.check_risk(0.0, 1 if side == "BUY" else -1):
             print("Order blocked by risk manager.")
             return None
-        
+
         try:
             # Convert quantity if needed to correct step size
             order = self.client.create_order(
-                symbol=symbol,
-                side=side,
-                type=order_type,
-                quantity=quantity
+                symbol=symbol, side=side, type=order_type, quantity=quantity
             )
-            print(f"Placed {side} {order_type} order for {quantity} of {symbol}.")
+            print(f"Placed {side} {order_type} order for " f"{quantity} of {symbol}.")
             return order
         except Exception as e:
             print("Error placing order:", e)

@@ -1,9 +1,11 @@
 import config.config_binance as config
 
+
 class RiskManager:
     """
     Basic risk manager that checks position sizing and potential drawdown.
     """
+
     def __init__(self):
         self.max_position_size = config.MAX_POSITION_SIZE
 
@@ -21,8 +23,8 @@ class RiskManager:
 
     def check_risk(self, current_price: float, signal: int) -> bool:
         """
-        Additional checks before placing a trade. 
-        For example, max drawdown, partial offsets, etc. 
+        Additional checks before placing a trade.
+        For example, max drawdown, partial offsets, etc.
         Here, we just do a trivial pass-through.
         """
         # If more advanced logic is needed, implement here

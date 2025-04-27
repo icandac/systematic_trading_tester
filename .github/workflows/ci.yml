@@ -1,32 +1,49 @@
 name: CI
 
-on: [push, pull_request]
+on:
+  push:
+  pull_request:
 
 jobs:
-  build:
+  test-and-lint:
     runs-on: ubuntu-22.04
+
+    # Cache both pip downloads and the venv
+    strategy:
+      matrix:
+        python-version: [3.11]
     steps:
       - uses: actions/checkout@v4
-      - name: Set up Python
+
+      - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v4
         with:
-          python-version: "3.11"
-      - name: Install dependencies
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      - name: Create & activate virtualenv
         run: |
           python -m venv .venv
           source .venv/bin/activate
-          pip install --upgrade pip
-          
+          python -m pip install --upgrade pip
+
+      - name: Install dependencies
+        run: |
+          source .venv/bin/activate
+          pip install pre-commit
+
           # TODO: Remove this workaround once backtester is fixed
-          # 1) Install all your normal requirements except backtester
+          # Install everything except backtester first
           grep -v '^backtester==' requirements.txt > req-no-backtester.txt
           pip install -r req-no-backtester.txt
-      
-          # 2) Ensure the real scikit-learn is present
           pip install scikit-learn==1.6.1
-      
-          # 3) Install backtester itself, but skip its broken dependencies
           pip install backtester==0.7 --no-deps
+
+      - name: Run pre-commit hooks
+        run: |
+          source .venv/bin/activate
+          pre-commit run --all-files
+
       - name: Run tests
         run: |
           source .venv/bin/activate
