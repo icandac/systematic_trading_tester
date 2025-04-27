@@ -11,7 +11,7 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "stt = systematic_trading_tester.main:cli_entry",  # you expose a cli()
+            "stt = systematic_trading_tester.main:cli_entry",  # to expose a cli()
         ]
     },
 )
