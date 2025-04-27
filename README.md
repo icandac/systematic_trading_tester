@@ -65,6 +65,6 @@ Note: to get the code structure, tree -I '*.pyc|__pycache__'
 - alert/notification to telegram or e-mail
 - Protect your main branch (optional due to the fact that I am the only developer currently and the repo can progress quickly)
 
-## Licence
+## License
 
-GPL v3
+The source code for NautilusTrader is available on GitHub under [the GNU Lesser General Public License v3.0] (https://www.gnu.org/licenses/lgpl-3.0.en.html).
