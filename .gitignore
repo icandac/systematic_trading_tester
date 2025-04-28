@@ -19,3 +19,4 @@ dist/
 .vscode/
 .idea/
 *.swp
+*egg-info/
