@@ -48,10 +48,26 @@ Library skeleton:
 
 ## Installation
 
+This library uses python3.11 for the current being. So, one should have 3.11 version of python to start. Then clone the repo by
+
 ```bash
-pip install -e .
-pip install -r requirements.txt
+git clone git@github.com:icandac/systematic_trading_tester.git
 ```
+
+After that, do the following respectively to install the whole library without having issues.
+
+Note: There is an ongoing issue with the backtester package we particularly handle which is addressed in one of the first issues and will be solved hopefully soon.
+
+```bash
+virtualenv --python=python3.11 .venv
+source .venv/bin/activate
+grep -v '^backtester==' requirements.txt > req-no-backtester.txt
+pip install -r req-no-backtester.txt
+pip install backtester==0.7 --no-deps
+rm req-no-backtester.txt
+```
+
+After these all, one should have successfully installed all necessary packages and ready to try the lib out already.
 
 If one is interested in auto-push in developer mode, make
 
@@ -59,7 +75,7 @@ If one is interested in auto-push in developer mode, make
 chmod +x git-auto.sh
 ```
 
-then the developer can pre-commit, commit and push just with one command which is
+then the developer can pre-commit, commit and push just with one CLI command which is
 
 ```bash
 ./git-auto.sh
@@ -76,7 +92,9 @@ python main.py live (change testnet to True or False for paper or live trading)
 1. test_live_cycle to test a simple live cycle.
 
 ## Road-map:
+- Also allowing manual trading execution by creating the same output like a bill of exchange, for discretionary trading
 - Logging with logging/loguru/live dashboard also to output sharp, returns, and PnL with live trading
+- Market status checker (bull, bear, etc.)
 - Explore how to output different indicators, one number parameters, charts for strategy testing and comparison for the same historical time intervals.
 - a second test strategy with kelly criterion and high-high low-low breakouts with stop-loss and many other easy to implement first strategies
 - Store (live?) data to ipc files or sql db?
