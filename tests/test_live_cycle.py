@@ -1,8 +1,8 @@
 import pandas as pd
 import numpy as np
 import config.config_binance as config
-import systematic_trading_tester.main as st_main
-from systematic_trading_tester.main import main_live_trading
+import gosha.main as st_main
+from gosha.main import main_live_trading
 
 def fake_data(*args, **kwargs):
     """Return a 100-row dataframe with a guaranteed long signal on the last row."""
