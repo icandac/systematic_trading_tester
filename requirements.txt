@@ -43,7 +43,6 @@ scipy==1.15.2
 six==1.17.0
 statsmodels==0.14.4
 svgwrite==1.4.3
-# Editable install with no version control (systematic_trading_tester==0.1.0)
 -e .
 threadpoolctl==3.6.0
 Tree==0.2.4

@@ -1,10 +1,17 @@
 # manual_orders.py
-import json, yaml, pathlib
+import json
+import pathlib
 from typing import List
-from .order_types import Order, Side, OrderType
 
-SCHEMA = {"required": {"symbol", "side", "qty"},   # minimal validation
-          "optional": {"order_type", "price", "tag"}}
+import yaml
+
+from .order_types import Order, OrderType, Side
+
+SCHEMA = {
+    "required": {"symbol", "side", "qty"},  # minimal validation
+    "optional": {"order_type", "price", "tag"},
+}
+
 
 def _validate(item: dict):
     missing = SCHEMA["required"] - item.keys()
@@ -19,10 +26,14 @@ def _validate(item: dict):
         tag=item.get("tag", "manual"),
     )
 
+
 def load_orders(path: str | pathlib.Path) -> List[Order]:
     p = pathlib.Path(path)
-    data = yaml.safe_load(p.read_text()) if p.suffix in {".yml", ".yaml"} \
-           else json.loads(p.read_text())
-    if isinstance(data, dict):          # allow single-order file
+    data = (
+        yaml.safe_load(p.read_text())
+        if p.suffix in {".yml", ".yaml"}
+        else json.loads(p.read_text())
+    )
+    if isinstance(data, dict):  # allow single-order file
         data = [data]
     return [_validate(item) for item in data]
