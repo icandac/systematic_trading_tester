@@ -10,40 +10,54 @@ Library skeleton:
 
 ```.
 ├── __init__.py
+├── __pycache__
+├── app
+│   ├── __init__.py
+│   ├── __pycache__
+│   ├── data_loader.py
+│   └── executor.py
 ├── backtest
-│   ├── __init__.py
-│   └── backtester.py
+│   ├── __init__.py
+│   ├── __pycache__
+│   └── backtester.py
 ├── config
-│   ├── __init__.py
-│   └── config_binance.py
+│   ├── __init__.py
+│   ├── __pycache__
+│   └── config_binance.py
 ├── data
-│   └── __init__.py
-├── data_loader.py
-├── executor.py
+│   └── __init__.py
+├── git-auto.sh
+├── LICENSE
 ├── main.py
 ├── outputs
-│   ├── backtest_results_2025-04-26 00:27:31.csv
-│   └── backtest_results_2025-04-26 00:31:05.csv
 ├── portfolio_management
-│   ├── __init__.py
-│   └── portolio_manager.py
-├── readme.md
+│   ├── __init__.py
+│   ├── __pycache__
+│   └── portolio_manager.py
+├── README.md
 ├── requirements.txt
 ├── risk
-│   ├── __init__.py
-│   └── sample_risk_calculator.py
+│   ├── __init__.py
+│   ├── __pycache__
+│   └── sample_risk_calculator.py
 ├── scripts
-│   ├── __init__.py
-│   └── metrics.py
+│   ├── __init__.py
+│   ├── __pycache__
+│   └── metrics.py
 ├── setup.py
 ├── strategy
-│   ├── __init__.py
-│   └── sample_str1.py
-└── systematic_trading_tester.egg-info
-    ├── PKG-INFO
-    ├── SOURCES.txt
-    ├── dependency_links.txt
-    └── top_level.txt
+│   ├── __init__.py
+│   ├── __pycache__
+│   └── sample_str1.py
+├── systematic_trading_tester.egg-info
+│   ├── dependency_links.txt
+│   ├── entry_points.txt
+│   ├── PKG-INFO
+│   ├── SOURCES.txt
+│   └── top_level.txt
+└── tests
+    ├── __init__.py
+    └── test_live_cycle.py
 ```
 
 ## Installation
