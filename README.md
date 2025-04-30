@@ -61,10 +61,7 @@ Note: There is an ongoing issue with the backtester package we particularly hand
 ```bash
 virtualenv --python=python3.11 .venv
 source .venv/bin/activate
-grep -v '^backtester==' requirements.txt > req-no-backtester.txt
-pip install -r req-no-backtester.txt
-pip install backtester==0.7 --no-deps
-rm req-no-backtester.txt
+pip install -r requirements.txt
 ```
 
 After these all, one should have successfully installed all necessary packages and ready to try the lib out already.
