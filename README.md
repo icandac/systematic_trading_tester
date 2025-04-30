@@ -1,4 +1,6 @@
-# Systematic Trading Tester
+# GOSHA
+
+![Gosha_banner_small](https://github.com/user-attachments/assets/97ecba66-860a-4e3a-a8dd-ac49a6a577f9)
 
 A small library for backtesting algorithmic trading strategies.
 
@@ -81,8 +83,12 @@ then the developer can pre-commit, commit and push just with one CLI command whi
 
 ## Usage
 
+```bash
 python main.py backtest
-python main.py live (change testnet to True or False for paper or live trading)
+python main.py live
+```
+
+(change testnet to True or False for paper or live trading)
 
 ## Tests
 
