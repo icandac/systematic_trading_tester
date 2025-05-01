@@ -5,7 +5,7 @@ from typing import List
 
 import yaml
 
-from .order_types import Order, OrderType, Side
+from order_types import Order, OrderType, Side
 
 SCHEMA = {
     "required": {"symbol", "side", "qty"},  # minimal validation
