@@ -1,8 +1,8 @@
 import pandas as pd
 import numpy as np
 import config.config_binance as config
-import systematic_trading_tester.main as st_main
-from systematic_trading_tester.main import main_live_trading
+from main import main_live_trading
+import data_loader
 
 def fake_data(*args, **kwargs):
     """Return a 100-row dataframe with a guaranteed long signal on the last row."""
@@ -38,10 +38,10 @@ def test_one_live_cycle(monkeypatch):
     monkeypatch.setattr(config, "TESTNET", True, raising=False)
 
     # --- 2) patch data loader + executor + sleep
-    monkeypatch.setattr(st_main, "fetch_historical_data", fake_data)
+    monkeypatch.setattr("main.fetch_historical_data", fake_data)
     dummy_exec = DummyExecutor()
-    monkeypatch.setattr(st_main, "TradeExecutor", lambda: dummy_exec)
-    monkeypatch.setattr(st_main.time, "sleep", lambda x: None)
+    monkeypatch.setattr("main.TradeExecutor", lambda: dummy_exec)
+    monkeypatch.setattr("main.time.sleep", lambda x: None)
 
     # --- 3) run one cycle
     main_live_trading(cycles=1, sleep_seconds=0)

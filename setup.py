@@ -2,7 +2,7 @@
 from setuptools import find_packages, setup
 
 setup(
-    name="systematic_trading_tester",
+    name="gosha",
     version="0.1.0",
     packages=find_packages(),
     install_requires=[
@@ -11,7 +11,7 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "stt = systematic_trading_tester.main:cli_entry",  # to expose a cli()
+            "stt = gosha.main:cli_entry",  # to expose a cli()
         ]
     },
 )

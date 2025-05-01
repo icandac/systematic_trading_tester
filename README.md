@@ -41,11 +41,6 @@ Library skeleton:
 ├── strategy
 │   ├── __init__.py
 │   └── sample_str1.py
-└── systematic_trading_tester.egg-info
-    ├── PKG-INFO
-    ├── SOURCES.txt
-    ├── dependency_links.txt
-    └── top_level.txt
 ```
 
 ## Installation
@@ -53,7 +48,7 @@ Library skeleton:
 This library uses python3.11 for the current being. So, one should have 3.11 version of python to start. Then clone the repo by
 
 ```bash
-git clone git@github.com:icandac/systematic_trading_tester.git
+git clone git@github.com:icandac/gosha.git
 ```
 
 After that, do the following respectively to install the whole library without having issues.

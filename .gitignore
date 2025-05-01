@@ -5,8 +5,8 @@ __pycache__/
 
 # Virtual environments
 .venv/
-.env/
-outputs/
+.env/*
+outputs/*
 .DS_Store
 
 # Distribution / packaging
@@ -19,3 +19,4 @@ dist/
 .vscode/
 .idea/
 *.swp
+*egg-info/

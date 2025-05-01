@@ -2,10 +2,9 @@ import time
 
 import config.config_binance as config
 from backtest.backtester import run_backtest
+from data_loader import fetch_historical_data
+from executor import TradeExecutor
 from strategy.sample_str1 import generate_signals
-
-from .data_loader import fetch_historical_data
-from .executor import TradeExecutor
 
 
 def main_backtest():
